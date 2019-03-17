@@ -1,0 +1,17 @@
+******************DOCKER********************
+//selinux
+ yum install http://vault.centos.org/centos/7.3.1611/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+
+
+//Install required packages. yum-utils provides the yum-config-manager utility, and device-mapper-persistent-data and lvm2 are required by the devicemapper storage driver.
+yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+
+//SETUP STABLE REPO
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+//INSTALL DOCKER
+yum install docker-ce docker-ce-cli containerd.io
